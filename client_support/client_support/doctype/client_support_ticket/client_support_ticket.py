@@ -47,7 +47,7 @@ class ClientSupportTicket(Document):
 		return ret
 
 	def on_update(self):
-		if (self.status == "Open" or self.status == "Reopen" or self.status == "In Progress" or self.status == "Not a Issue" or self.status == "Completed" or self.status == "Closed" ):
+		if (self.status == "Open" or self.status == "Reopen" or self.status == "In Progress" or self.status == "Not a Issue" or self.status == "Completed" or self.status == "Closed"  or self.status == "On Hold" ):
 			manager_list=frappe.db.sql("select client_user,support_client_user,client_support_manager from tabProject where name= '%s'"%(self.project), as_list=1)
 			if manager_list:
 				print manager_list,"manager_list"
